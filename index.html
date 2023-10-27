@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
   <title>Salary Calculator</title>
 </head>
 <body>
@@ -11,10 +12,36 @@
   </header>
   <main>
     <h2>Add Employee</h2>
+    <!-- Form goes here -->
+    <form>
+      <input
+        placeholder="First Name"
+        type="text"
+        id="firstName">
+      <input
+        placeholder="Last Name"
+        type="text"
+        id="lastName">
+      <input
+        placeholder="ID"
+        type="text"
+        id="idNum">
+      <input
+        placeholder="Title"
+        type="text"
+        id="title">
+      <input
+        placeholder="Annual Salary"
+        type="text"
+        id="annualSalary">
+      <button class="submit-button">Submit</button>
+    </form>
     <h2>Employees</h2>
+    <!-- Table with employees goes here -->
   </main>
   <footer>
     <p>Total Monthly</p>
+    <!-- Total monthly expense goes here -->
   </footer>
 </body>
 </html>
