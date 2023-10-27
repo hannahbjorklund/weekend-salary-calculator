@@ -21,8 +21,8 @@ function handleSubmit(event){
         <td>${lastName}</td>
         <td>${idNum}</td>
         <td>${title}</td>
-        <td>${annualSalary}</td>
-        <td><button>Delete</button></td>
+        <td>$${annualSalary}</td>
+        <td><button onclick='deleteEmployee(event)'>Delete</button></td>
     </tr>`;
     // Clear the form fields
     document.getElementById("firstName").value = '';
@@ -30,4 +30,11 @@ function handleSubmit(event){
     document.getElementById("idNum").value = '';
     document.getElementById("title").value = '';
     document.getElementById("annualSalary").value = '';
+}
+
+// Allow the user to delete an employee using the delete button
+function deleteEmployee(event){
+    console.log("You wish to delete this employee.");
+    //Must use parentElement twice since we want to delete the entire row, not just the button itself
+    event.target.parentElement.parentElement.remove();
 }
