@@ -1,4 +1,6 @@
 console.log("Oh hi there, JS is working!");
+// Creating a variable to keep track of the total monthly cost of all employees
+let totalMonthly = 0;
 
 // Take in form submission data and add a new row to table. 
 function handleSubmit(event){
@@ -30,6 +32,17 @@ function handleSubmit(event){
     document.getElementById("idNum").value = '';
     document.getElementById("title").value = '';
     document.getElementById("annualSalary").value = '';
+
+    // Update total monthly
+    totalMonthly += annualSalary/12;
+    console.log("Total monthly:", totalMonthly);
+    // Create a variable for the footer, where we will update the total monthly cost
+    let span = document.getElementById("total-monthly");
+    // Make total monthly red if the total exceeds $20,000, else leave it black
+    span.innerHTML = `$${totalMonthly.toFixed(2)}`;
+    if(totalMonthly > 20000){
+        span.classList.add('over-budget');
+    }
 }
 
 // Allow the user to delete an employee using the delete button

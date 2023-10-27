@@ -25,3 +25,7 @@ table {
   footer{
     text-align: right;
   }
+
+  .over-budget{
+    color: red;
+  }
