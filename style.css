@@ -1,3 +1,13 @@
+header{
+    background-color: mediumvioletred;
+    text-align: center;
+    font-size: large;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: white;
+    text-shadow: black 0px 0px 10px;
+  }
+
 table {
     width: 100%;
     text-align: left;
@@ -12,7 +22,7 @@ table {
     min-width: 3.5em;
   }
   thead {
-    background: pink;
+    background: violet;
     color: black;
   }
   tbody tr:nth-child(odd){ 

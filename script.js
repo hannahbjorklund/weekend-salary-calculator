@@ -24,7 +24,7 @@ function handleSubmit(event){
         <td>${idNum}</td>
         <td>${title}</td>
         <td>$${annualSalary}</td>
-        <td><button onclick='deleteEmployee(event)'>Delete</button></td>
+        <td><button onclick='deleteEmployee(event,${annualSalary})'>Delete</button></td>
     </tr>`;
     // Clear the form fields
     document.getElementById("firstName").value = '';
@@ -36,18 +36,26 @@ function handleSubmit(event){
     // Update total monthly
     totalMonthly += annualSalary/12;
     console.log("Total monthly:", totalMonthly);
-    // Create a variable for the footer, where we will update the total monthly cost
+    // Create a variable for the span, where we will update the total monthly cost
     let span = document.getElementById("total-monthly");
+    let footer = document.getElementById("footer")
     // Make total monthly red if the total exceeds $20,000, else leave it black
     span.innerHTML = `$${totalMonthly.toFixed(2)}`;
     if(totalMonthly > 20000){
-        span.classList.add('over-budget');
+        footer.classList.add('over-budget');
     }
 }
 
 // Allow the user to delete an employee using the delete button
-function deleteEmployee(event){
+function deleteEmployee(event, annualSalary){
     console.log("You wish to delete this employee.");
+    console.log("Annual salary of removed employee:", annualSalary, typeof annualSalary);
     //Must use parentElement twice since we want to delete the entire row, not just the button itself
     event.target.parentElement.parentElement.remove();
+    totalMonthly -= annualSalary/12;
+    console.log("Total monthly:", totalMonthly);
+    let span = document.getElementById("total-monthly");
+    span.innerHTML = `$${totalMonthly.toFixed(2)}`;
+    // Remove the over-budget class if the updated total monthly is less than 20,000
+    footer.classList.remove('over-budget');
 }
